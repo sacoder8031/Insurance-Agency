@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/loginpage.css}">
+
+</head>
+<body class="quicksand text-center">
+<!-- navbar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-theme1">
+    <a th:href="@{/}" class="ml-2 pr-2 mr-4 quicksand navbar-brand font-weight-bold font-size-2">AiA</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" area-expanded="false" aria-label="Toggle navigation" name="button">
+        <i class="fas fa-bars navbar-hamburger-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto ml-2">
+            <li class="nav-item active  mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/policy}">Policies</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/FAQ}">FAQs</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<div class="form-div">
+    <form class="form-signin " th:action="@{/login}" th:object="${user}" method="post">
+        <img class="mb-3 bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100" height="100">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <p class="alert alert-danger" th:if="${param.error}">Invalid email or password.</p>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" th:field="*{email}" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" th:field="*{password}" id="inputPassword" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Sign in</button>
+        <p class="mt-4 font-weight-normal">Not a user yet?<a th:href="@{/register}"> click here</a></p>
+    </form>
+
+</div>
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

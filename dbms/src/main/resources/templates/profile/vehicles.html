@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicles</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+<body class="quicksand">
+<div th:insert="homepage::navbar"></div>
+<div class="container">
+    <div class="row">
+        <div th:insert="profile/userprofile::sidebar"></div>
+        <div class="col-md-12 pt-5 col-12 text-center">
+            <img class="mb-3 bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="200" height="200">
+            <div class="card mx-auto col-md-10 col-12 my-4" th:each="vehicle : ${vehicles}">
+                <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Vehicle</p>
+                <h2 class="card-body text-color-dark-blue" th:text="${'Vehicle Number: ' + vehicle.getVehicleNumber()}"></h2>
+            </div>
+            <a th:href="@{/self/vehicle/add}"><button class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Add Vehicle</button></a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

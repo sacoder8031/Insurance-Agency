@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Anubhav Insurance</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="quicksand">
+
+<!-- navbar -->
+<nav th:fragment="navbar" class="navbar sticky-top navbar-expand-lg navbar-dark bg-theme1">
+    <a th:href="@{/}" class="ml-2 pr-2 mr-4 quicksand navbar-brand font-weight-bold font-size-2">AiA</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" area-expanded="false" aria-label="Toggle navigation" name="button">
+        <i class="fas fa-bars navbar-hamburger-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto ml-2">
+            <li class="nav-item active  mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/policy}">Policies</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/FAQ}">FAQs</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item ml-2 mr-2" th:if="not ${loginStatus}">
+                <a th:href="@{/login}" class="nav-link quicksand font-weight-bold text-white">Login</a>
+            </li>
+            <li class="nav-item ml-2 mr-4" th:if="not ${loginStatus}">
+                <a th:href="@{/register}" class="nav-link quicksand font-weight-bold text-white">Register</a>
+            </li>
+            <li class="nav-item ml-2 mr-4" th:if="${loginStatus}">
+                <a th:href="@{/self}" class="nav-link quicksand font-weight-bold text-white">Profile</a>
+            </li>
+            <li class="nav-item ml-2 mr-4" th:if="${loginStatus}">
+                <a th:href="@{/logout}" class="nav-link quicksand font-weight-bold text-white">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+<!-- top inro -->
+<div class="top-intro">
+    <img th:src="@{/images/homemain.jpg}" alt="" style="width:100%;">
+    <h1 class="text-center top-intro-text quicksand text-weight-bolder">Welcome</h1>
+</div>
+
+
+
+
+
+<!-- about us section  -->
+<div class="container mt-5 pt-5 pb-5">
+    <div class="row">
+        <div class="col col-lg-6 px-5 py-5 col-xs-12">
+            <p class="section-header font-weight-bold">
+                A B O U T <span class="pl-2">U</span> S
+            </p>
+            <h1 class="about-us-heading">We are a Award Wining Company!</h1>
+            <p class="about-us-content">
+                With a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out
+            </p>
+            <p class="text-color-dark-blue font-weight-bold">
+                Phone: +917014597890
+            </p>
+        </div>
+        <div class="col col-lg-6 col-md-12 right-col px-5 py-5 col-xs-12">
+            <p class="display-6 pb-2 pt-4">Since 1950, we are providing the insurance solution for our client’s and we are very successfull about the area.</p>
+            <p class="about-us-content">It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out</p>
+            <a th:href="@{/contacts}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">More about us</button></a>
+        </div>
+        <div class="col text-white col-lg-6 col-12 ">
+            <div class="row">
+                <div class="col col-6 text-center p-4 align-mddle bg-theme1 text-white font-weight-bold">
+                    <i class="fas fa-hands icons-about-us p-2"></i>
+                    <h1 class="display-4 font-weight-bold " style="font-family: arial;"> 4,500</h1>
+                    <p class="font-weight-normal">
+                        INSURANCE POLICIES
+                    </p>
+                </div>
+                <div class="col col-6 text-center p-4 align-mddle bg-theme2 text-white font-weight-bold">
+                    <i class="fas fa-user-secret icons-about-us p-2"></i>
+                    <h1 class="display-4 font-weight-bold " style="font-family: arial;">68</h1>
+                    <p class="font-weight-normal">
+                        INSURANCE AGENTS
+                    </p>
+                </div>
+                <div class="col col-6 text-center p-4 align-mddle bg-theme2 text-white font-weight-bold">
+                    <i class="fas fa-medal icons-about-us p-2"></i>
+                    <h1 class="display-4 font-weight-bold " style="font-family: arial;">50</h1>
+                    <p class="font-weight-normal">
+                        AWARDS
+                    </p>
+                </div>
+                <div class="col col-6 text-center p-4 align-mddle bg-theme1 text-white font-weight-bold">
+                    <i class="far fa-smile icons-about-us p-2"></i>
+                    <h1 class="display-4 font-weight-bold " style="font-family: arial;">2,500%</h1>
+                    <p class="font-weight-normal">
+                        HAPPY CLIENTS
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col col-lg-6 col-12 p-0">
+            <img th:src="@{/images/about.jpg}" alt="" class="image-about-us">
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!-- types of insurances -->
+<div th:fragment="policy-categories" class="container mt-2 mb-4">
+    <p class="text-center font-weight-bold service-section-header">
+        O U R <span class="pl-2">B</span> E S T <span class="pl-2">S</span> E R V I C E S
+    </p>
+    <h1 class="about-us-heading text-center col-lg-6 mx-auto">Best insurance services for our client’s</h1>
+    <div class="row">
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/policy/health}">
+            <i class="far fa-plus-square text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Health insurance
+            </p>
+            </a>
+        </div>
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/policy/property}">
+            <i class="fas fa-home text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Home insurance
+            </p>
+            </a>
+        </div>
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/policy/life}">
+            <i class="fas fa-heartbeat text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Life insurance
+            </p>
+            </a>
+        </div>
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/policy/vehicle}">
+            <i class="fas fa-car text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Car insurance
+            </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- contact us details and likeable area -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col col-12 col-lg-6 px-5">
+            <p class="section-header font-weight-bold">
+                L I K E A B L E <span class="pl-2">A</span> R E A
+            </p>
+            <h1 class="about-us-heading">Best Life Insurance Company in the World!</h1>
+            <p class="about-us-content">
+                With a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out
+            </p>
+        </div>
+        <div class="col col-12 col-lg-6 right-col pb-5">
+            <div class="about-us-content px-5 pt-5 font-weight-bold">
+                CALL US FOR DETAILS
+            </div>
+            <h1 class="text-theme1 px-5 about-us-heading font-weight-bold">
+                +917014597890
+            </h1>
+            <a th:href="@{/contacts}"> <button type="button" class="btn no-outline custom-radius-border mx-5 text-white font-weight-bold bg-theme1 py-2 px-4" name="button">Contact with Us</button></a>
+        </div>
+        <div class="experience-image">
+            <img th:src="@{/images/experience.jpg}" alt="" style="width:100%;" class="">
+            <h1 class="experience-text-big col-6">15</h1>
+            <h1 class="experience-text-small col-sm-3 col-6">YEARS OF EXPERIENCE</h1>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- testimonials -->
+<div class="container my-5 pt-5">
+    <p class="text-center font-weight-bold service-section-header">
+        T E S T I M O N I A L S
+    </p>
+    <h1 class="about-us-heading text-center col-lg-5 mx-auto">What People Say About Us</h1>
+
+
+
+
+    <div id="carouselExampleControls" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+
+                <div class="row mx-auto mt-2">
+                    <div class="col col-lg-6 col-12">
+                        <div class="col-lg-12 mt-4 right-col p-5 ml-auto mr-auto col-12">
+                            <blockquote class="blockquote">
+                                <p class="about-us-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                    scrambled</p>
+                                <p class="blockquote-footer text-theme1 font-weight-bold">
+                                    <span class="testimonial-name">Mr. Bang</span><br />
+                                    <span class="about-us-content pl-4">Life insurance holder</span>
+                                </p>
+
+                            </blockquote>
+                            <div class="text-right">
+                                <i class="fas fa-quote-right testimonial-quotes"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6 col-12">
+                        <div class="col-lg-12 mt-4 right-col p-5 ml-auto mr-auto col-12">
+                            <blockquote class="blockquote">
+                                <p class="about-us-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                    scrambled</p>
+                                <p class="blockquote-footer text-theme1 font-weight-bold">
+                                    <span class="testimonial-name">Mr. Bang</span><br />
+                                    <span class="about-us-content pl-4">Life insurance holder</span>
+                                </p>
+
+                            </blockquote>
+                            <div class="text-right">
+                                <i class="fas fa-quote-right testimonial-quotes"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row mx-auto mt-2">
+                    <div class="col col-lg-6 col-12">
+                        <div class="col-lg-12 mt-4 right-col p-5 ml-auto mr-auto col-12">
+                            <blockquote class="blockquote">
+                                <p class="about-us-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                    scrambled</p>
+                                <p class="blockquote-footer text-theme1 font-weight-bold">
+                                    <span class="testimonial-name">Mr. Bang</span><br />
+                                    <span class="about-us-content pl-4">Life insurance holder</span>
+                                </p>
+
+                            </blockquote>
+                            <div class="text-right">
+                                <i class="fas fa-quote-right testimonial-quotes"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6 col-12">
+                        <div class="col-lg-12 mt-4 right-col p-5 ml-auto mr-auto col-12">
+                            <blockquote class="blockquote">
+                                <p class="about-us-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                    scrambled</p>
+                                <p class="blockquote-footer text-theme1 font-weight-bold">
+                                    <span class="testimonial-name">Mr. Bang</span><br />
+                                    <span class="about-us-content pl-4">Life insurance holder</span>
+                                </p>
+
+                            </blockquote>
+                            <div class="text-right">
+                                <i class="fas fa-quote-right testimonial-quotes"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row mx-auto mt-2">
+                    <div class="col col-lg-6 col-12">
+                        <div class="col-lg-12 mt-4 right-col p-5 ml-auto mr-auto col-12">
+                            <blockquote class="blockquote">
+                                <p class="about-us-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                    scrambled</p>
+                                <p class="blockquote-footer text-theme1 font-weight-bold">
+                                    <span class="testimonial-name">Mr. Bang</span><br />
+                                    <span class="about-us-content pl-4">Life insurance holder</span>
+                                </p>
+
+                            </blockquote>
+                            <div class="text-right">
+                                <i class="fas fa-quote-right testimonial-quotes"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col col-lg-6 col-12">
+                        <div class="col-lg-12 mt-4 right-col p-5 ml-auto mr-auto col-12">
+                            <blockquote class="blockquote">
+                                <p class="about-us-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                                    scrambled</p>
+                                <p class="blockquote-footer text-theme1 font-weight-bold">
+                                    <span class="testimonial-name">Mr. Bang</span><br />
+                                    <span class="about-us-content pl-4">Life insurance holder</span>
+                                </p>
+
+                            </blockquote>
+                            <div class="text-right">
+                                <i class="fas fa-quote-right testimonial-quotes"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a class="" href="#carouselExampleControls" role="button" data-slide="prev">
+                <i class="fas fa-chevron-left text-theme1 testimonial-buttons"></i>
+            </a>
+            <a class="" href="#carouselExampleControls" role="button" data-slide="next">
+                <i class="fas fa-chevron-right text-theme1 testimonial-buttons"></i>
+            </a>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+</div>
+
+<!-- important links -->
+<div th:fragment="bottom-display" class="mt-5 bg-bottom">
+    <div class="container text-center text-white pt-5 pb-3">
+        <h1 class="font-weight-bold">AiA</h1>
+
+        Anubhav Insurance Agency
+
+        <br>
+        <div class="pt-2 pb-1">+917014597890</div>
+        <i class="fab fa-facebook-f p-2"></i>
+        <i class="fab fa-twitter p-2"></i>
+        <i class="fab fa-linkedin-in p-2"></i>
+        <i class="fab fa-pinterest-p p-2"></i>
+        <br />
+        <hr class="bg-light mx-5"/>
+        <p class="pt-3">
+            Copyright &copy 2020 Anubhav Insurance Agency. All rights reserved
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

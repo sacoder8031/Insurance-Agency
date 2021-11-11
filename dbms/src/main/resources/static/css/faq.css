@@ -1,0 +1,23 @@
+.card{
+    box-shadow: 1em 1em 2em #d3d3d3;
+    font-weight: 500;
+}
+.card-header{
+    background-color: #51da85;
+    color: white;
+    font-weight: 600;
+}
+
+.collapsed{
+    background-color: white;
+    color: #263265;
+}
+
+.card-body{
+    color: #263265;
+}
+
+.header-size-2{
+    font-size: 1.1em;
+}
+

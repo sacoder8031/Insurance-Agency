@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link th:href="@{/css/faq.css}" rel="stylesheet">
+</head>
+<body class="quicksand">
+<div th:insert="homepage::navbar"></div>
+
+
+
+
+<div class="top-intro">
+    <img th:src="@{/images/faq.jpg}" alt="" style="width:100%;">
+    <h1 class="text-center top-intro-text quicksand text-weight-bolder">FAQs</h1>
+</div>
+
+
+
+<div class="container mt-5 mb-2 pt-5 text-center">
+    <span class="service-section-header header-size-2 font-weight-bold">F A Q</span>
+    <h2 class="text-color-dark-blue font-weight-bold display-4">Frequently Asked Question</h2>
+</div>
+<div id="accordion" class="container pb-4 pt-5">
+    <div class="card mb-3" th:each="faq : ${faqs}">
+        <div class="card-header pt-3 pb-1 collapsed" th:id="'heading-'+${faq.id}" data-toggle="collapse" th:attr="data-target='#'+${faq.id}" aria-expanded="false" th:attrappend="aria-controls=${faq.id}">
+            <p class="" th:text="${faq.question}"></p>
+        </div>
+        <div th:id="${faq.id}" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+                <p th:text="${faq.answer}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- types of insurances -->
+<div class="container mt-5 mb-4">
+    <p class="text-center font-weight-bold service-section-header">
+        F A Q <span class="pl-2">B</span> Y <span class="pl-2">C</span> A T E G O R Y
+    </p>
+    <h1 class="about-us-heading text-center col-lg-6 mx-auto">FAQs about a particular section</h1>
+    <div class="row">
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/FAQ/health}">
+            <i class="far fa-plus-square text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue no-underline-on-hover font-weight-bold pb-4" style="font-size:1.3rem">
+                Health insurance
+            </p>
+            </a>
+        </div>
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/FAQ/property}">
+            <i class="fas fa-home text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Home insurance
+            </p>
+            </a>
+        </div>
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/FAQ/life}">
+            <i class="fas fa-heartbeat text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Life insurance
+            </p>
+            </a>
+        </div>
+        <div class="text-center col col-lg-3 col-md-6 col-sm-6 col-xs-6 col-12">
+            <a style="text-decoration: none;" th:href="@{/FAQ/vehicle}">
+            <i class="fas fa-car text-theme1 display-3 pt-4 pb-2"></i>
+            <p class="text-color-dark-blue font-weight-bold pb-4" style="font-size:1.3rem">
+                Car insurance
+            </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div th:insert="homepage::bottom-display"></div>
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

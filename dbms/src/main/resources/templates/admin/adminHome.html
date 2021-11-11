@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/loginpage.css}">
+</head>
+<body class="quicksand text-center">
+<nav th:fragment="navbar" class="navbar sticky-top navbar-expand-lg navbar-dark bg-theme1">
+    <a th:href="@{/}" class="ml-2 pr-2 mr-4 quicksand navbar-brand font-weight-bold font-size-2">AiA</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" area-expanded="false" aria-label="Toggle navigation" name="button">
+        <i class="fas fa-bars navbar-hamburger-icon"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mr-auto ml-2">
+            <li class="nav-item active  mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item mr-3">
+                <a class="nav-link quicksand font-weight-bold text-white" th:href="@{/admin}">Admin Home</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="form-div">
+    <div class="form-signin">
+        <h1><a style="text-decoration: none;" th:href="@{/admin/policy/add}" > <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Add Policies</button></a></h1>
+        <h1><a style="text-decoration: none;" th:href="@{/admin/claims}"><button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Verify Claims</button></a></h1>
+        <h1><a style="text-decoration: none;" th:href="@{/admin/policy/change}"> <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Expire a Policy</button></a></h1>
+
+    </div>
+
+</div>
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

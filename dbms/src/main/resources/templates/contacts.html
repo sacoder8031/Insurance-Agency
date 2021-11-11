@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+<body class="quicksand">
+<div th:insert="homepage::navbar"></div>
+
+<div class="container">
+    <div class="col-12 col-md-6 col-lg-4 my-5 mx-auto card text-color-dark-blue p-3 pb-5 text-center" style="box-shadow: 1em 1em 2em #d3d3d3;">
+        <img class="mb-3 mt-5 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"
+             height="100">
+
+        <h1 class="text-color-dark-blue">Contact Us</h1>
+        <p class="text-color-dark-blue">Phone Number: +917014597890</p>
+        <p class="text-color-dark-blue">Address: 12, rajeev gandhi nagar, delhi</p>
+        <p class="text-color-dark-blue">Email: anubhavinsurance@gmail.com</p>
+    </div>
+</div>
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

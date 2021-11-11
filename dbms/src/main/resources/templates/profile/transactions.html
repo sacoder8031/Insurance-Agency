@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+</head>
+<body>
+<div th:insert="homepage::navbar"></div>
+
+<div class="container">
+    <div class="row">
+        <div th:insert="profile/userprofile::sidebar"></div>
+        <div class="col-md-12 pt-5 col-12 text-center">
+            <img class="mb-3 bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="200" height="200">
+            <div class="card mx-auto col-md-10 col-12 my-4" th:each="transaction:${transactions}">
+                <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Transaction ID: <span th:text="${transaction.getReceiptNumber()}"></span> </p>
+                <div class="card-body">
+                <h2 class="text-color-dark-blue" th:text="${'On Record: '+transaction.getRecordId()}"></h2>
+                <p class=" text-color-dark-blue" th:text="${'Amount: $'+transaction.getAmount()}"></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

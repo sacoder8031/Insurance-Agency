@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Policy Listing</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/policyListing.css}">
+</head>
+<body class="quicksand text-center">
+<div th:insert="homepage::navbar"></div>
+
+<div class="top-intro">
+    <img th:src="@{/images/faq.jpg}" alt="" style="width:100%;">
+    <h1 class="text-center top-intro-text quicksand text-weight-bolder" th:text="${category+' policies'}"></h1>
+</div>
+
+<div class="container my-5">
+    <div class="row text-center align-center">
+        <div th:each="policy: ${policies}" class="mx-auto p-2 col-12 col-md-6 col-lg-4">
+            <div class="card text-color-dark-blue p-3 pb-5 text-center">
+                <img class="mb-3 mt-5 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100" height="100">
+
+                <h3 th:text="${policy.getName()}" class="text-color-dark-blue">title</h3>
+                <p>
+                    amount: $<span th:text="${policy.getMaxClaimAmount()}"></span>
+                </p>
+                <p>
+                    premium: $<span th:text="${policy.getPremium()}"></span>
+                </p>
+                <a th:href="@{/policy/{id}(id=${policy.getId()})}"><button class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Know more</button></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a th:href="@{/FAQ/{category}(category=${category})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">FAQs</button></a>
+
+
+<div th:insert="homepage::bottom-display"></div>
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

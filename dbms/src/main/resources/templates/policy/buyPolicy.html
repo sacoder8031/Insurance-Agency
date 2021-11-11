@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Policy</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/loginpage.css}">
+</head>
+<body class="quicksand text-center">
+<div th:insert="homepage::navbar"></div>
+
+<div class="form-div" th:if="${onVehicle}">
+    <form class="form-signin" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post" th:object="${onVehicle}">
+
+        <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100" height="100">
+
+        <select class="form-control" name="objectId" required>
+            <option th:each="vehicle: ${vehicles}" th:value="${vehicle.getId()}" th:text="${vehicle.getVehicleNumber()}"></option>
+        </select>
+        <input class="form-control" type="text" placeholder="card number" required>
+        <input class="form-control" type="text" placeholder="cvv" required>
+        <input class="form-control" type="date" placeholder="expiry date" required>
+        <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
+    </form>
+</div>
+<div class="form-div" th:if="${onProperty}">
+    <form class="form-signin" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post" th:object="${onProperty}">
+        <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100" height="100">
+
+        <select class="form-control" name="objectId" required>
+            <option th:each="property : ${properties}" th:value="${property.getId()}" th:text="${property.getName()}"></option>
+        </select>
+        <input class="form-control" type="text" placeholder="card number" required>
+        <input class="form-control" type="text" placeholder="cvv" required>
+        <input class="form-control" type="date" placeholder="expiry date" required>
+        <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
+    </form>
+</div>
+<div class="form-div" th:unless="${onProperty} or ${onVehicle}">
+    <form class="form-signin" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post" >
+        <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100" height="100">
+
+        <input class="form-control" type="text" value="0" name="objectId" hidden>
+        <input class="form-control" type="text" placeholder="card number" required>
+        <input class="form-control" type="text" placeholder="cvv" required>
+        <input class="form-control" type="date" placeholder="expiry date" required>
+        <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
