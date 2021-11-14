@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Active Claims</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/homepage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+<body class="quicksand text-center">
+
+<div th:insert="admin/adminHome::navbar"></div>
+<p class="section-header mt-5 font-weight-bold">
+    H E A L T H <span class="pl-2">C</span> L A I M S
+</p>
+<div class="card px-0 mx-auto col-md-10 col-12 my-4" th:each="claim: ${healthClaims}">
+    <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+    <div class="card-body">
+        <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+        <p class=" text-color-dark-blue" th:text="${'Record ID: '+claim.getRecordId()}"></p>
+
+        <p class=" text-color-dark-blue" th:text="${'Damage Amount: $'+claim.getDamage()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Document Location: '+claim.getLinkToDocuments()}"></p>
+        <div class="row">
+            <div class="col-6 text-right">
+                <a th:href="@{/admin/claims/health/{id}/accept(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Accept</button></a>
+            </div>
+            <div class="col-6 text-left">
+                <a th:href="@{/admin/claims/health/{id}/reject(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Reject</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="section-header mt-5 font-weight-bold">
+    V E H I C L E <span class="pl-2">C</span> L A I M S
+</p>
+<div class="card px-0 mx-auto col-md-10 col-12 my-4" th:each="claim: ${vehicleClaims}">
+    <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+    <div class="card-body">
+        <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+        <p class=" text-color-dark-blue" th:text="${'Record ID: '+claim.getRecordId()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'On Vehicle: '+claim.getVehicleId()}"></p>
+
+        <p class=" text-color-dark-blue" th:text="${'Damage Amount: $'+claim.getDamage()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Document Location: '+claim.getLinkToDocuments()}"></p>
+        <div class="row">
+            <div class="col-6 text-right">
+                <a th:href="@{/admin/claims/vehicle/{id}/accept(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Accept</button></a>
+            </div>
+            <div class="col-6 text-left">
+                <a th:href="@{/admin/claims/vehicle/{id}/reject(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Reject</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="section-header mt-5 font-weight-bold">
+    P R O P E R T Y <span class="pl-2">C</span> L A I M S
+</p>
+<div class="card px-0 mx-auto col-md-10 col-12 my-4" th:each="claim: ${propertyClaims}">
+    <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+    <div class="card-body">
+        <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+        <p class=" text-color-dark-blue" th:text="${'Record ID: '+claim.getRecordId()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'On Property: '+claim.getPropertyId()}"></p>
+
+        <p class=" text-color-dark-blue" th:text="${'Damage Amount: $'+claim.getDamage()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Document Location: '+claim.getLinkToDocuments()}"></p>
+        <div class="row">
+            <div class="col-6 text-right">
+                <a th:href="@{/admin/claims/property/{id}/accept(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Accept</button></a>
+            </div>
+            <div class="col-6 text-left">
+                <a th:href="@{/admin/claims/property/{id}/reject(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Reject</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<p class="section-header mt-5 font-weight-bold">
+    L I F E <span class="pl-2">I</span> N S U R A N C E <span class="pl-2">C</span> L A I M S
+</p>
+<div class="card px-0 mx-auto col-md-10 col-12 my-4" th:each="claim: ${lifeClaims}">
+    <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+    <div class="card-body">
+        <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+        <p class=" text-color-dark-blue" th:text="${'Record ID: '+claim.getRecordId()}"></p>
+
+        <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+        <p class=" text-color-dark-blue" th:text="${'Document Location: '+claim.getDeathCertificateLocation()}"></p>
+        <div class="row">
+            <div class="col-6 text-right">
+                <a th:href="@{/admin/claims/life/{id}/accept(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Accept</button></a>
+            </div>
+            <div class="col-6 text-left">
+                <a th:href="@{/admin/claims/life/{id}/reject(id=${claim.getId()})}"><button type="button" name="button" class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Reject</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- fontawesome script -->
+<script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+<!-- bootstrap script -->
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
