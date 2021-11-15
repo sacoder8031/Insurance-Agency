@@ -38,7 +38,7 @@ public class RegistrationEmailListener implements ApplicationListener<OnRegistra
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(recipient);
         email.setSubject(subject);
-        email.setText(message + "https://www.freemysqlhosting.net/" + url);
+        email.setText(message + "http://insurance-agency.azurewebsites.net/" + url);
         mailSender.send(email);
 
     }
