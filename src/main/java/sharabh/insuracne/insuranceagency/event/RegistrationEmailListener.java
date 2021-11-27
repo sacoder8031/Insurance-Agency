@@ -38,7 +38,7 @@ public class RegistrationEmailListener implements ApplicationListener<OnRegistra
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(recipient);
         email.setSubject(subject);
-        email.setText(message + "https://sharabh-insurance-agency.herokuapp.com/" + url);
+        email.setText(message + "https://sharabh-insurance-agency.herokuapp.com" + url);
         mailSender.send(email);
 
     }
